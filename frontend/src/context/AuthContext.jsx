@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['x-auth-token'] = token;
 
       try {
-        const res = await axios.get('/api/auth/user');
+        const res = await axios.get('/auth/user');
         setUser(res.data);
         setIsAuthenticated(true);
       } catch (err) {
@@ -69,14 +69,14 @@ export const AuthProvider = ({ children }) => {
   const register = async (formData) => {
     try {
       setError(null);
-      const res = await axios.post('/api/auth/register', formData);
+      const res = await axios.post('/auth/register', formData);
       
       // Save token and set auth state
       localStorage.setItem('token', res.data.token);
       axios.defaults.headers.common['x-auth-token'] = res.data.token;
       
       // Load user data
-      const userRes = await axios.get('/api/auth/user');
+      const userRes = await axios.get('/auth/user');
       setUser(userRes.data);
       setIsAuthenticated(true);
       
@@ -99,14 +99,14 @@ export const AuthProvider = ({ children }) => {
   const login = async (formData) => {
     try {
       setError(null);
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post('/auth/login', formData);
       
       // Save token and set auth state
       localStorage.setItem('token', res.data.token);
       axios.defaults.headers.common['x-auth-token'] = res.data.token;
       
       // Load user data
-      const userRes = await axios.get('/api/auth/user');
+      const userRes = await axios.get('/auth/user');
       setUser(userRes.data);
       setIsAuthenticated(true);
       
@@ -143,7 +143,7 @@ export const AuthProvider = ({ children }) => {
   const updateProfile = async (profileData) => {
     try {
       setError(null);
-      const res = await axios.put('/api/users/profile', profileData);
+      const res = await axios.put('/users/profile', profileData);
       setUser(res.data);
       return res.data;
     } catch (err) {
@@ -164,7 +164,7 @@ export const AuthProvider = ({ children }) => {
   const changePassword = async (passwordData) => {
     try {
       setError(null);
-      const res = await axios.put('/api/users/password', passwordData);
+      const res = await axios.put('/users/password', passwordData);
       return res.data;
     } catch (err) {
       setError(
@@ -184,7 +184,7 @@ export const AuthProvider = ({ children }) => {
   const forgotPassword = async (emailData) => {
     try {
       setError(null);
-      const res = await axios.post('/api/auth/forgot-password', emailData);
+      const res = await axios.post('/auth/forgot-password', emailData);
       return res.data;
     } catch (err) {
       setError(
@@ -205,7 +205,7 @@ export const AuthProvider = ({ children }) => {
   const resetPassword = async (token, passwordData) => {
     try {
       setError(null);
-      const res = await axios.post(`/api/auth/reset-password/${token}`, passwordData);
+      const res = await axios.post(`/auth/reset-password/${token}`, passwordData);
       return res.data;
     } catch (err) {
       setError(
