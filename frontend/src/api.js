@@ -4,7 +4,7 @@ import axios from 'axios';
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 
   (process.env.NODE_ENV === 'production' 
     ? 'https://jnanasthan1-production.up.railway.app' // Removed trailing slash
-    : 'http://localhost:5000');
+    : 'https://jnanasthan1-production.up.railway.app');
 
 export const API_ENDPOINTS = {
   BASE_URL: API_BASE_URL,

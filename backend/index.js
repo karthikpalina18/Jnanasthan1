@@ -32,13 +32,7 @@ const { socketAuth } = require('./middleware/auth');
 const app = express();
 const server = http.createServer(app);
 
-// Configure CORS with more restrictive options
-// app.use(cors({
-//   origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   credentials: true,
-//   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
-// }));
+
 app.use(cors({
   origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -422,7 +416,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.log('✅ MongoDB connected');
   const PORT = process.env.PORT || 5000;
   
-  server.listen(PORT, () => {
+  server.listen(PORT,'0.0.0.0', () => {
     console.log(`🚀 Server running on port ${PORT}`);
   });
 })
