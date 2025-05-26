@@ -33,11 +33,17 @@ const app = express();
 const server = http.createServer(app);
 
 // Configure CORS with more restrictive options
+// app.use(cors({
+//   origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true,
+//   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
+// }));
 app.use(cors({
   origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
+  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"]
 }));
 
 // Parse JSON request body
