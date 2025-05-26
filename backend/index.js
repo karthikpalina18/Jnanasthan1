@@ -7,7 +7,6 @@ const { Server } = require('socket.io');
 const axios = require('axios');
 const { AccessToken } = require('livekit-server-sdk');
 const rateLimit = require('express-rate-limit');
-const Conversation = require('./models/Conversation'); // Add this line
 // Add this at the top of your server.js file
 
 const socketIo = require('socket.io');
@@ -202,19 +201,6 @@ io.on('connection', (socket) => {
       from: socket.id
     });
   });
-  // Make sure you have this route (you do, but ensure it's working)
-app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'ok', 
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
-});
-
-// Also add a root route for basic checks
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Server is running!' });
-});
   
   // Handle chat messages
   socket.on('send-message', ({ roomId, message }) => {
