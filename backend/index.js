@@ -57,25 +57,25 @@ const authLimiter = rateLimit({
   max: 10, // 10 auth attempts per 15 minutes
   message: { message: 'Too many login attempts, please try again later' }
 });
-app.use('/api/auth/login', authLimiter);
-app.use('/api/auth/register', authLimiter);
+app.use('/auth/login', authLimiter);
+app.use('/auth/register', authLimiter);
 
 // Set up routes
-app.use('/api/auth', authRoutes);
-app.use('/api/quiz', quizRoutes);
-app.use('/api/attempt', attemptRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('/auth', authRoutes);
+app.use('/quiz', quizRoutes);
+app.use('/attempt', attemptRoutes);
+app.use('/admin', adminRoutes);
 // Add collaboration routes
 
 
 
-app.use('/api/courses', require('./routes/courses'));
-app.use('/api/studymaterials', require('./routes/studyMaterial'));
-app.use('/api/profile',require('./routes/profile'))
-app.use('/api/message',require('./routes/message'))
-app.use('/api/notification',require('./routes/notification'))
-app.use('/api/connection',require('./routes/connection'))
-app.use('/api/opportunities',require('./routes/opportunities'))
+app.use('/courses', require('./routes/courses'));
+app.use('/studymaterials', require('./routes/studyMaterial'));
+app.use('/profile',require('./routes/profile'))
+app.use('/message',require('./routes/message'))
+app.use('/notification',require('./routes/notification'))
+app.use('/connection',require('./routes/connection'))
+app.use('/opportunities',require('./routes/opportunities'))
 
 // Store room data and user sockets and make it available to routes
 const rooms = {};
