@@ -589,7 +589,7 @@ const CreateQuiz = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/quiz',
+        'https://jnanasthan1-production.up.railway.app/quiz',
         formData,
         {
           headers: {

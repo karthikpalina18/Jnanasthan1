@@ -317,7 +317,7 @@ const AdminQuizList = () => {
   const fetchQuizzes = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/quiz/admin/all', {
+      const res = await axios.get('https://jnanasthan1-production.up.railway.app/quiz/admin/all', {
         headers: {
           'x-auth-token': token
         }
@@ -341,7 +341,7 @@ const AdminQuizList = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/quiz/${quizId}`, {
+      await axios.delete(`https://jnanasthan1-production.up.railway.app/quiz/${quizId}`, {
         headers: {
           'x-auth-token': token
         }
@@ -374,7 +374,7 @@ const AdminQuizList = () => {
         isPublished: !currentStatus // Toggle the status
       };
       
-      await axios.put(`http://localhost:5000/api/quiz/${quizId}`, updatedData, {
+      await axios.put(`https://jnanasthan1-production.up.railway.app/quiz/${quizId}`, updatedData, {
         headers: {
           'x-auth-token': token
         }

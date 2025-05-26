@@ -35,7 +35,7 @@ const EditQuiz = () => {
     const fetchQuiz = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`/api/admin/quizzes/${id}`, {
+        const response = await axios.get(`https://jnanasthan1-production.up.railway.app/admin/quizzes/${id}`, {
           headers: { 'x-auth-token': token }
         });
         

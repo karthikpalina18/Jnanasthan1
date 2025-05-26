@@ -34,7 +34,7 @@ const server = http.createServer(app);
 
 // Configure CORS with more restrictive options
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app/",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
@@ -86,7 +86,7 @@ app.set('userSockets', userSockets);
 // Initialize Socket.io server with authentication
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app/",
     methods: ["GET", "POST"],
     credentials: true
   }
