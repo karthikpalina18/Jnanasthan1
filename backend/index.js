@@ -32,12 +32,17 @@ const { socketAuth } = require('./middleware/auth');
 const app = express();
 const server = http.createServer(app);
 
-
+// Enhanced CORS configuration
 app.use(cors({
-  origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
+  origin: [
+    "https://jnanasthan.netlify.app",
+    "http://localhost:3000", // for development
+    "http://localhost:5173", // for Vite dev server
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"]
+  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
+  optionsSuccessStatus: 200 // For legacy browser support
 }));
 
 // Parse JSON request body
@@ -86,9 +91,14 @@ app.set('userSockets', userSockets);
 // Initialize Socket.io server with authentication
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "https://jnanasthan.netlify.app",
+    origin: [
+      "https://jnanasthan.netlify.app",
+      "http://localhost:3000",
+      "http://localhost:5173"
+    ],
     methods: ["GET", "POST"],
-    credentials: true
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
   }
 });
 
