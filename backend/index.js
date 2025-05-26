@@ -82,6 +82,20 @@ app.use('/notification',require('./routes/notification'))
 app.use('/connection',require('./routes/connection'))
 app.use('/opportunities',require('./routes/opportunities'))
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'healthy',
+    service: 'backend',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    port: process.env.PORT || 8080
+  });
+});
+
+// Also add a simple root endpoint
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
 // Store room data and user sockets and make it available to routes
 const rooms = {};
 const userSockets = {};
