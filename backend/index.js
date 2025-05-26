@@ -309,7 +309,7 @@ io.on('connection', (socket) => {
 });
 
 // Code compilation endpoint with validation
-app.post('/api/compile', async (req, res) => {
+app.post('/compile', async (req, res) => {
   const { source_code, language_id, stdin } = req.body;
 
   // Validate required fields
@@ -362,7 +362,7 @@ app.post('/api/compile', async (req, res) => {
 });
 
 // LiveKit token generation endpoint with validation
-app.post('/api/get-token', (req, res) => {
+app.post('/get-token', (req, res) => {
   const { roomName, participantName } = req.body;
   
   if (!roomName || !participantName) {
