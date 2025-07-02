@@ -13,7 +13,7 @@ export const ChatProvider = ({ children }) => {
 
   // Initialize socket connection
   useEffect(() => {
-    const SOCKET_URL = "http://localhost:5000";
+    const SOCKET_URL = "https://jnanasthan-production.up.railway.app/";
     
     // Only initialize socket if not already connected
     if (!socketRef.current) {

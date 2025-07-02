@@ -10,7 +10,7 @@ const sendConnectionRequest = async (email) => {
 
   try {
     // Using a direct fetch implementation since axios might not be available
-    const response = await fetch('http://localhost:5000/api/connection/send', {
+    const response = await fetch('https://jnanasthan-production.up.railway.app/connection/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

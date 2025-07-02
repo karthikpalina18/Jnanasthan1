@@ -22,7 +22,7 @@ const ProfilePage = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/profile/${Userid}`);
+        const response = await axios.get(`https://jnanasthan-production.up.railway.app/profile/${Userid}`);
         setProfile(response.data);
         setLoading(false);
       } catch (err) {

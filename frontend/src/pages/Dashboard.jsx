@@ -36,7 +36,7 @@ const Dashboard = () => {
       const token = localStorage.getItem("token");
       console.log(localStorage.getItem("token"));
 
-      const res = await axios.get("http://localhost:5000/api/auth/streak", {
+      const res = await axios.get("https://jnanasthan-production.up.railway.app/auth/streak", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

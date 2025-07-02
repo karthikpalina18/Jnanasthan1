@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/collab',
+  baseURL: import.meta.env.VITE_API_URL || 'https://jnanasthan-production.up.railway.app/collab',
   headers: {
     'Content-Type': 'application/json',
   },

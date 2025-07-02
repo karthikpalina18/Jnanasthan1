@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
           });
           
           // Verify token and get user data
-          const response = await authAxios.get('/api/auth/me');
+          const response = await authAxios.get('/auth/me');
           setUser(response.data);
         } catch (err) {
           // Token is invalid or expired
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     
     try {
-      const response = await axios.post('/api/auth/login', credentials);
+      const response = await axios.post('/auth/login', credentials);
       
       // Save token to localStorage
       localStorage.setItem('token', response.data.token);
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     
     try {
-      const response = await axios.post('/api/auth/register', userData);
+      const response = await axios.post('/auth/register', userData);
       
       // Save token to localStorage
       localStorage.setItem('token', response.data.token);
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
       });
       
       // Update user data
-      const response = await authAxios.put('/api/users/profile', userData);
+      const response = await authAxios.put('/users/profile', userData);
       
       // Update user in state
       setUser(response.data);

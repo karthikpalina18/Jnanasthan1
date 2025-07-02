@@ -12,7 +12,7 @@ const QuizResult = () => {
     const fetchResult = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5000/api/attempt/${attemptId}`, {
+        const res = await axios.get(`https://jnanasthan-production.up.railway.app/attempt/${attemptId}`, {
           headers: {
             'x-auth-token': token
           }

@@ -19,7 +19,7 @@ const Notifications = () => {
         return;
       }
       
-      const response = await axios.get('http://localhost:5000/api/notification', {
+      const response = await axios.get('https://jnanasthan-production.up.railway.app/notification', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ const Notifications = () => {
         return;
       }
       
-      await axios.put(`http://localhost:5000/api/notification/${notificationId}/read`, {}, {
+      await axios.put(`https://jnanasthan-production.up.railway.app/notification/${notificationId}/read`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }

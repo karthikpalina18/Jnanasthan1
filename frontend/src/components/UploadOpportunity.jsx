@@ -14,7 +14,7 @@ function UploadOpportunity() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/opportunities/upload', formData);
+    await axios.post('https://jnanasthan-production.up.railway.app/opportunities/upload', formData);
     alert('Uploaded successfully!');
   };
 

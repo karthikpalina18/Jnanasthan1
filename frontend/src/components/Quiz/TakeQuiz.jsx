@@ -19,7 +19,7 @@ const TakeQuiz = () => {
     const fetchQuiz = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5000/api/quiz/${id}`, {
+        const res = await axios.get(`https://jnanasthan-production.up.railway.app/quiz/${id}`, {
           headers: {
             'x-auth-token': token
           }
@@ -28,7 +28,7 @@ const TakeQuiz = () => {
         
         // Start a new attempt
         const attemptRes = await axios.post(
-          `http://localhost:5000/api/attempt/start`,
+          `https://jnanasthan-production.up.railway.app/attempt/start`,
           { 
             quizId: id,
             startedAt: new Date().toISOString() // Ensure proper date format
@@ -148,7 +148,7 @@ const TakeQuiz = () => {
       }
       
       const res = await axios.post(
-        `http://localhost:5000/api/attempt/submit`,
+        `https://jnanasthan-production.up.railway.app/attempt/submit`,
         requestData,
         {
           headers: {

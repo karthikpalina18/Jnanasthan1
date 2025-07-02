@@ -22,6 +22,12 @@ router.get('/', async (req, res) => {
 });
 
 // Search study materials by subject (used by search bar)
+// ✅ Specific routes first
+router.get('/subjects', async (req, res) => {
+  const subjects = await StudyMaterial.find({}).select('subject -_id');
+  res.json(subjects.map(s => s.subject));
+});
+
 router.get('/subject/:name', async (req, res) => {
   const { name } = req.params;
   const result = await StudyMaterial.findOne({ subject: name });
@@ -32,17 +38,9 @@ router.get('/subject/:name', async (req, res) => {
   }
 });
 
-
-// Fetch all subject names
-router.get('/subjects', async (req, res) => {
-  const subjects = await StudyMaterial.find({}).select('subject -_id');
-  res.json(subjects.map(s => s.subject));
-});
-
-// Fetch unit-wise material
+// ✅ Dynamic route last
 router.get('/:subject', async (req, res) => {
   const material = await StudyMaterial.findOne({ subject: req.params.subject });
   res.json(material);
 });
-
 module.exports = router;

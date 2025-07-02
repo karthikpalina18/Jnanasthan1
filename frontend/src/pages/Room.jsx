@@ -26,7 +26,7 @@ const Room = () => {
   // Connect to socket.io server and set up WebRTC
   useEffect(() => {
     // Initialize socket connection
-    const socket = io('http://localhost:5000', {
+    const socket = io('https://jnanasthan-production.up.railway.app/', {
       query: { roomId, username }
     });
     socketRef.current = socket;

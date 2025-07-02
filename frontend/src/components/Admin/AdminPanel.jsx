@@ -373,23 +373,23 @@ const AdminPanel = () => {
 
         // You'll need to implement these endpoints on your backend
         const [usersRes, quizzesRes, attemptsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/auth/users/count', {
+          axios.get('https://jnanasthan-production.up.railway.app/auth/users/count', {
             headers: { 'x-auth-token': token }
           }),
-          axios.get('http://localhost:5000/api/quiz/count', {
+          axios.get('https://jnanasthan-production.up.railway.app/quiz/count', {
             headers: { 'x-auth-token': token }
           }),
-          axios.get('http://localhost:5000/api/attempt/count', {
+          axios.get('https://jnanasthan-production.up.railway.app/attempt/count', {
             headers: { 'x-auth-token': token }
           })
         ]);
 
         // Optional: Get recent users and quizzes
         const [recentUsersRes, recentQuizzesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/auth/users/recent', {
+          axios.get('https://jnanasthan-production.up.railway.app/auth/users/recent', {
             headers: { 'x-auth-token': token }
           }),
-          axios.get('http://localhost:5000/api/quiz/recent', {
+          axios.get('https://jnanasthan-production.up.railway.app/quiz/recent', {
             headers: { 'x-auth-token': token }
           })
         ]);

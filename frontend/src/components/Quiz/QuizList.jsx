@@ -7,7 +7,7 @@ const QuizList = () => {
   const [quizzes, setQuizzes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/quiz')
+    axios.get('https://jnanasthan-production.up.railway.app/quiz')
       .then((response) => {
         const data = Array.isArray(response.data) ? response.data : [];
         setQuizzes(data);

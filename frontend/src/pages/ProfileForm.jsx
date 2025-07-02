@@ -16,7 +16,7 @@ const ProfileForm = () => {
 
   useEffect(() => {
     // Fetch profile data if it exists
-    axios.get('http://localhost:5000/api/profile/${userId}', {
+    axios.get('https://jnanasthan-production.up.railway.app/profile/${userId}', {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -39,7 +39,7 @@ const ProfileForm = () => {
     e.preventDefault();
     
     // POST request to update profile data
-    axios.post('http://localhost:5000/api/profile', profile, {
+    axios.post('https://jnanasthan-production.up.railway.app/profile', profile, {
       headers: {
         Authorization: `Bearer ${token}`,  // Send the token in the header
       }

@@ -21,7 +21,7 @@ class WebSocketService {
       this.disconnect();
     }
 
-    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'https://jnanasthan-production.up.railway.app/';
     
     this.socket = io(socketUrl, {
       auth: {

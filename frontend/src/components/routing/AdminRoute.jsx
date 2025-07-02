@@ -20,7 +20,7 @@ const AdminRoute = ({ children }) => {
       
       try {
         // Get user data including role
-        const response = await axios.get('http://localhost:5000/api/auth/user', {
+        const response = await axios.get('https://jnanasthan-production.up.railway.app/auth/user', {
           headers: {
             'x-auth-token': token
           }

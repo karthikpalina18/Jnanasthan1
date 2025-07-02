@@ -75,7 +75,7 @@ const Signup = () => {
     setIsLoading(true);
     
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', { 
+      await axios.post('https://jnanasthan-production.up.railway.app/auth/signup', { 
         username,
         email, 
         password 

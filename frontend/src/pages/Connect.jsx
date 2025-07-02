@@ -29,8 +29,8 @@ const Connect = () => {
       try {
         // Fetch connections and requests in parallel
         const [connectionsResponse, requestsResponse] = await Promise.all([
-          axios.get('http://localhost:5000/api/connection/myConnections', config),
-          axios.get('http://localhost:5000/api/connection/pendingRequests', config)
+          axios.get('https://jnanasthan-production.up.railway.app/connection/myConnections', config),
+          axios.get('https://jnanasthan-production.up.railway.app/connection/pendingRequests', config)
         ]);
         
         setConnections(connectionsResponse.data);
@@ -62,7 +62,7 @@ const Connect = () => {
         },
       };
       
-      await axios.put(`http://localhost:5000/api/connection/${connectionId}/accept`, {}, config);
+      await axios.put(`https://jnanasthan-production.up.railway.app/connection/${connectionId}/accept`, {}, config);
       
       // Update state after successful acceptance
       const acceptedRequest = requests.find(req => req._id === connectionId);

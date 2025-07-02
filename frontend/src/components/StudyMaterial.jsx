@@ -13,7 +13,7 @@ export default function StudyMaterial() {
   useEffect(() => {
     // Fetch subjects on component mount
     setLoading(true);
-    fetch('http://localhost:5000/api/studymaterials/subjects')
+    fetch('https://jnanasthan-production.up.railway.app/studymaterials/subjects')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch subjects');
         return res.json();

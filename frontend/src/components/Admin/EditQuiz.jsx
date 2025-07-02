@@ -206,7 +206,7 @@ const EditQuiz = () => {
         })
       };
       
-      await axios.put(`/api/admin/quizzes/${id}`, quizData, {
+      await axios.put(`/admin/quizzes/${id}`, quizData, {
         headers: { 'x-auth-token': token }
       });
       

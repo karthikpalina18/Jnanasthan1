@@ -13,7 +13,7 @@ function OpportunitiesList() {
     const fetchOpportunities = async () => {
       setLoading(true);
       try {
-        const res = await fetch('http://localhost:5000/api/opportunities');
+        const res = await fetch('https://jnanasthan-production.up.railway.app/opportunities');
         if (!res.ok) throw new Error('Failed to fetch data');
         const fetchedData = await res.json();
         setData(fetchedData);

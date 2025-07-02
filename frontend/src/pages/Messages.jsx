@@ -286,7 +286,7 @@ const Messages = () => {
 
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:5000/api/connection/myConnections', config);
+        const response = await axios.get('https://jnanasthan-production.up.railway.app/connection/myConnections', config);
         setConnections(response.data);
         setLoading(false);
       } catch (err) {
@@ -308,7 +308,7 @@ const Messages = () => {
 
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5000/api/message/${selectedConnectionEmail}`, config);
+        const response = await axios.get(`https://jnanasthan-production.up.railway.app/message/${selectedConnectionEmail}`, config);
         setMessages(response.data);
         setLoading(false);
       } catch (error) {
@@ -350,7 +350,7 @@ const Messages = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/message', messageData, config);
+      const response = await axios.post('https://jnanasthan-production.up.railway.app/message', messageData, config);
       setMessages([...messages, response.data]);
       setMessageContent('');
       setLoading(false);

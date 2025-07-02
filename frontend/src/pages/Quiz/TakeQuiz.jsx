@@ -269,7 +269,7 @@ const TakeQuiz = () => {
     const fetchQuiz = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5000/api/quiz/${id}`, {
+        const res = await axios.get(`https://jnanasthan-production.up.railway.app/quiz/${id}`, {
           headers: {
             'x-auth-token': token
           }
@@ -325,7 +325,7 @@ const TakeQuiz = () => {
       }));
       
       const response = await axios.post(
-        'http://localhost:5000/api/attempt/submit',
+        'https://jnanasthan-backend.up.railway.app/attempt/submit',
         {
           quizId: id,
           answers,
